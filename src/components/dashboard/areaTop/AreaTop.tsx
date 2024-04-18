@@ -44,7 +44,7 @@ const AreaTop = () => {
         <button className="menu-toggle-btn" type="button" onClick={openSidebar}>
           <MdOutlineMenu size={24} />
         </button>
-        <h2 className="area-top-title">Dashboard</h2>
+        <h2 className="area-top-title">Gösterge Paneli</h2>
       </div>
       <div className="area-top-r">
         <div

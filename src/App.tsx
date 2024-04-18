@@ -1,53 +1,80 @@
-import { useContext, useEffect } from 'react'
-import './App.scss'
-import { ThemeContext } from './context/ThemeContext'
-import { DARK_THEME, LIGHT_THEME } from './constants/themeConstants';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useContext, useEffect, lazy, Suspense } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { AuthContext } from "./context/AuthContext";
+import { ThemeContext } from "./context/ThemeContext";
+import "./App.scss";
 import MoonIcon from "./assets/icons/moon.svg";
 import SunIcon from "./assets/icons/sun.svg";
-import BaseLayout from "./layout/BaseLayout";
-import { Dashboard, PageNotFound } from "./screens";
+import { CircularProgress } from "@mui/material";
 
+// Lazy load components
+const BaseLayout = lazy(() => import("./layout/BaseLayout"));
+const Dashboard = lazy(() => import("./screens/dashboard/DashboardScreen"));
+const PageNotFound = lazy(() => import("./screens/error/PageNotFound"));
+const Login = lazy(() => import("./screens/login/Login"));
 
 function App() {
+  axios.defaults.baseURL = `http://localhost:5000`;
+  const { user } = useContext(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-  const {theme, toggleTheme} = useContext(ThemeContext);
-
-  // adding dark-mode class if the dark mode is set on to the body tag
   useEffect(() => {
-    if (theme === DARK_THEME) {
+    if (theme === "dark") {
       document.body.classList.add("dark-mode");
     } else {
       document.body.classList.remove("dark-mode");
     }
   }, [theme]);
 
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route element={<BaseLayout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Dashboard />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-        </Routes>
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: user ? <BaseLayout /> : <Navigate to="/login" replace />,
+      children: [
+        { path: "/", element: <Dashboard /> },
+        
+        { path: "*", element: <PageNotFound /> },
+      ],
+    },
+    { path: "/login", element: <Login /> },
+    // { path: "*", element: <PageNotFound /> },
+  ]);
 
-        <button
+  return (
+    <Suspense
+      fallback={
+        <div className="fallback">
+          <CircularProgress
+              style={{ width: "25px", height: "25px" }}
+              color="primary"
+            />
+        </div>
+      }
+    >
+      <RouterProvider router={router} />
+      
+      <button
           type="button"
           className="theme-toggle-btn"
           onClick={toggleTheme}
         >
           <img
             className="theme-icon"
-            src={theme === LIGHT_THEME ? SunIcon : MoonIcon}
+            src={theme === "light" ? SunIcon : MoonIcon}
+            alt="Theme Icon"
           />
         </button>
-
-
-      </Router>
-    </>
-  )
+      <ToastContainer />
+    </Suspense>
+  );
 }
 
-export default App
+export default App;

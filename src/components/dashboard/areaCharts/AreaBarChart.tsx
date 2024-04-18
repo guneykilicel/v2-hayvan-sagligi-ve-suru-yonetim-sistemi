@@ -13,47 +13,47 @@ interface DataItem {
 
 const data: DataItem[] = [
   {
-    month: 'Jan',
+    month: 'Ock',
     loss: 70,
     profit: 100,
   },
   {
-    month: 'Feb',
+    month: 'Şbt',
     loss: 55,
     profit: 85,
   },
   {
-    month: 'Mar',
+    month: 'Mrt',
     loss: 35,
     profit: 90,
   },
   {
-    month: 'April',
+    month: 'Nsn',
     loss: 90,
     profit: 70,
   },
   {
-    month: 'May',
+    month: 'Mys',
     loss: 55,
     profit: 80,
   },
   {
-    month: 'Jun',
+    month: 'Hzn',
     loss: 30,
     profit: 50,
   },
   {
-    month: 'Jul',
+    month: 'Tmz',
     loss: 32,
     profit: 75,
   },
   {
-    month: 'Aug',
+    month: 'Ağs',
     loss: 62,
     profit: 86,
   },
   {
-    month: 'Sep',
+    month: 'Eyl',
     loss: 55,
     profit: 78,
   },
@@ -77,12 +77,12 @@ const AreaBarChart: React.FC = () => {
   return (
     <div className="bar-chart">
       <div className="bar-chart-info">
-        <h5 className="bar-chart-title">Total Revenue</h5>
+        <h5 className="bar-chart-title">Toplam Hasılat</h5>
         <div className="chart-info-data">
-          <div className="info-data-value">$50.4K</div>
+          <div className="info-data-value">₺5.4K</div>
           <div className="info-data-text">
             <FaArrowUpLong />
-            <p>5% than last month.</p>
+            <p>%5 geçen aya göre</p>
           </div>
         </div>
       </div>
@@ -132,6 +132,7 @@ const AreaBarChart: React.FC = () => {
             />
             <Bar
               dataKey="profit"
+              name={'Gelir'}
               fill="#475be8"
               activeBar={false}
               isAnimationActive={false}
@@ -140,6 +141,7 @@ const AreaBarChart: React.FC = () => {
             />
             <Bar
               dataKey="loss"
+              name={'Gider'}
               fill="#e3e7fc"
               activeBar={false}
               isAnimationActive={false}
