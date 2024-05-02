@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { MdOutlineMenu, MdOutlineClose, MdOutlineSettings, MdOutlineLogout, MdOutlineBarChart, MdOutlineAttachMoney, MdOutlineCurrencyExchange, MdOutlineShoppingBag, MdOutlinePeople, MdOutlineMessage } from "react-icons/md";
+import { MdOutlineMenu, MdOutlineClose, MdOutlineSettings, MdOutlineLogout, MdOutlineBarChart, MdOutlineAttachMoney, MdOutlineCurrencyExchange, MdOutlineShoppingBag, MdOutlinePeople, MdOutlineMessage, MdOutlineAccountCircle, MdCurrencyLira, MdFormatListBulleted, MdOutlineExitToApp } from "react-icons/md";
 import { ThemeContext } from "../../context/ThemeContext";
 import { LIGHT_THEME } from "../../constants/themeConstants";
 import LogoLight from "../../assets/images/logo_light.png";
@@ -9,6 +9,12 @@ import SunIcon from "../../assets/icons/sunforbutton.svg";
 import { Link } from "react-router-dom";
 import { SidebarContext } from "../../context/SidebarContext";
 import "./Sidebar.scss";
+import { LuPanelLeft } from "react-icons/lu";
+import { FaCow } from "react-icons/fa6";
+import { GiSheep } from "react-icons/gi";
+import { GoGraph } from "react-icons/go";
+import { IoBarChartOutline } from "react-icons/io5";
+import { IoMdCalendar } from "react-icons/io";
 
 const Sidebar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -53,57 +59,81 @@ const Sidebar = () => {
             <li className="menu-item">
               <Link to="/" className="menu-link active">
                 <span className="menu-link-icon">
-                  <MdOutlineMenu size={18} />
+                <LuPanelLeft size={18} />
                 </span>
-                <span className="menu-link-text">Dashboard</span>
+                <span className="menu-link-text">Gösterge Paneli</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/profile" className="menu-link">
+                <span className="menu-link-icon">
+                <MdOutlineAccountCircle size={20} />
+                </span>
+                <span className="menu-link-text">Profil</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineBarChart size={20} />
+                <MdCurrencyLira size={20} />
                 </span>
-                <span className="menu-link-text">Statistics</span>
+                <span className="menu-link-text">Hasılat</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/farm-list" className="menu-link">
+                <span className="menu-link-icon">
+                <MdFormatListBulleted size={18} />
+                </span>
+                <span className="menu-link-text">Çiflik Listesi</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineAttachMoney size={20} />
+                <FaCow size={20} />
                 </span>
-                <span className="menu-link-text">Payment</span>
+                <span className="menu-link-text">Büyükbaş Hayvanlar</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineCurrencyExchange size={18} />
+                <GiSheep size={20} />
                 </span>
-                <span className="menu-link-text">Transactions</span>
+                <span className="menu-link-text">Küçükbaş Hayvanlar</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineShoppingBag size={20} />
+                <MdOutlineExitToApp size={20} />
                 </span>
-                <span className="menu-link-text">Products</span>
+                <span className="menu-link-text">Ayrılan Hayvanlar</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlinePeople size={20} />
+                <IoBarChartOutline size={18} />
                 </span>
-                <span className="menu-link-text">Customer</span>
+                <span className="menu-link-text">Rasyon</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineMessage size={18} />
+                <GoGraph size={18} />
                 </span>
-                <span className="menu-link-text">Messages</span>
+                <span className="menu-link-text">Rapor</span>
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/" className="menu-link">
+                <span className="menu-link-icon">
+                <IoMdCalendar size={20} />
+                </span>
+                <span className="menu-link-text">Aşı Takvimi</span>
               </Link>
             </li>
           </ul>
@@ -126,7 +156,7 @@ const Sidebar = () => {
                 <span className="menu-link-icon">
                   <MdOutlineSettings size={20} />
                 </span>
-                <span className="menu-link-text">Settings</span>
+                <span className="menu-link-text">Ayarlar</span>
               </Link>
             </li>
             <li className="menu-item">
@@ -134,7 +164,7 @@ const Sidebar = () => {
                 <span className="menu-link-icon">
                   <MdOutlineLogout size={20} />
                 </span>
-                <span className="menu-link-text">Logout</span>
+                <span className="menu-link-text">Çıkış Yap</span>
               </Link>
             </li>
           </ul>

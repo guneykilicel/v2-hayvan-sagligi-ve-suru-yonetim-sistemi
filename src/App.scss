@@ -26,7 +26,13 @@
   --chart-secondary-color: #e6e6e6;
   // box shadow
   --light-shadow1: rgba(0, 0, 0, 0.02) 0px 4px 12px;
+  
 }
+
+span{
+  font-family: var(--font-family-manrope) !important;
+}
+
 
 //--theme-button-color: #fbff00;
 
@@ -72,7 +78,7 @@
   --toggle-btn-bg-color: #525270;
   --toggle-btn-icon-color: #bdbdbd;
   --thead-bg-color: #383854;
-  --tbl-border-color: ##383854;
+  --tbl-border-color: #383854;
   --scroll-track-bg-color: #2e2e48;
   --scroll-thumb-bg-color: #575777;
 }
@@ -187,3 +193,130 @@ ul {
     }
   }
 }
+
+// fallback
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--background-color);
+}
+
+
+.menu-toggle-btn {
+  background-color: var(--bg-color-inverted);
+  position: fixed;
+  right: 0;
+  top: 20px;
+  width: 48px;
+  height: 40px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: 0;
+  z-index: 99;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: var(--xl-text-color);
+
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  .theme-icon {
+    width: 24px;
+  }
+}
+
+.MuiDataGrid-columnsManagementHeader{
+  font-family: var(--font-family-manrope);
+  background: var(--background-color);
+
+  input {
+    color: var(--text-color-inverted);
+  }
+
+  fieldset{
+    border-color: var(--text-color-inverted) !important;
+  }
+}
+.MuiDataGrid-columnsManagement{
+  background: var(--background-color);
+  color: var(--text-color-inverted);
+
+  
+  .MuiSvgIcon-fontSizeMedium {
+    color: var(--primary-color);
+  }
+}
+.MuiDataGrid-columnsManagementFooter{
+  background: var(--background-color);
+  color: var(--text-color-inverted);
+  .MuiSvgIcon-fontSizeMedium {
+    color: var(--primary-color);
+  }
+
+  button {
+    color: var(--primary-color);
+  }
+
+}
+
+.MuiDataGrid-filterForm{
+  background: var(--background-color);
+  color: var(--text-color-inverted);
+  border-color: var(--text-color-inverted);
+
+  .MuiSelect-select{
+    color: var(--text-color-inverted);
+  }
+
+  input, span, svg, label{
+    color: var(--text-color-inverted);
+  }
+}
+
+.MuiList-root{
+  background: var(--background-color);
+  color: var(--text-color-inverted);
+
+  .MuiButtonBase-root{
+    font-weight: 300;
+  }
+}
+
+.MuiSvgIcon-root {
+  color: var(--text-color-inverted);
+}
+
+
+.MuiDataGrid-menuList{
+  background: var(--background-color);
+}
+
+.MuiMenuItem-root{
+  font-family: var(--font-family-manrope) !important;
+  color: var(--text-color-inverted) !important;
+}
+
+.MuiButton-colorPrimary{
+  color: var(--primary-color) !important;
+}
+
+div[data-field="action"] {
+  overflow: visible !important;
+}
+
+// .MuiDataGrid-virtualScroller{
+//   overflow: visible !important;
+// }
+
+// .MuiDataGrid-main{
+//   overflow: visible !important;
+// }

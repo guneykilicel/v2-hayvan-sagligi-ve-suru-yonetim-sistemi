@@ -25,7 +25,7 @@ const AreaCards = () => {
           percentFillValue: 40,
           chartInfo: {
             targetName: "Mevcut",
-            outName: "Tahmini Gidecek",
+            outName: "Tahmini Gerekli",
           },
         }}
         cardInfo={{
