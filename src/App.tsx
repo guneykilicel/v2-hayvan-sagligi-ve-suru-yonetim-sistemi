@@ -14,6 +14,10 @@ import "./App.scss";
 import MoonIcon from "./assets/icons/moon.svg";
 import SunIcon from "./assets/icons/sun.svg";
 import { CircularProgress } from "@mui/material";
+import FarmList from "./screens/farmList/FarmList";
+import { SidebarContext } from "./context/SidebarContext";
+import { MdOutlineMenu } from "react-icons/md";
+import Profile from "./screens/profile/Profile";
 
 // Lazy load components
 const BaseLayout = lazy(() => import("./layout/BaseLayout"));
@@ -40,13 +44,16 @@ function App() {
       element: user ? <BaseLayout /> : <Navigate to="/login" replace />,
       children: [
         { path: "/", element: <Dashboard /> },
-        
+        { path: "/profile", element: <Profile /> },
+        { path: "/farm-list", element: <FarmList /> },
         { path: "*", element: <PageNotFound /> },
       ],
     },
     { path: "/login", element: <Login /> },
     // { path: "*", element: <PageNotFound /> },
   ]);
+
+  const { openSidebar } = useContext(SidebarContext);
 
   return (
     <Suspense
@@ -71,6 +78,9 @@ function App() {
             src={theme === "light" ? SunIcon : MoonIcon}
             alt="Theme Icon"
           />
+        </button>
+        <button className="menu-toggle-btn" type="button" onClick={openSidebar}>
+          <MdOutlineMenu size={24} />
         </button>
       <ToastContainer />
     </Suspense>

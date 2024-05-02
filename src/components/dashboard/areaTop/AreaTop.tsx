@@ -8,7 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // Tema CSS dosyası
 import './AreaTop.scss';
 
 const AreaTop = () => {
-  const { openSidebar } = useContext(SidebarContext);
+  
 
   const [state, setState] = useState<DateRangeProps['ranges']>([
     {
@@ -41,9 +41,6 @@ const AreaTop = () => {
   return (
     <section className="content-area-top">
       <div className="area-top-l">
-        <button className="menu-toggle-btn" type="button" onClick={openSidebar}>
-          <MdOutlineMenu size={24} />
-        </button>
         <h2 className="area-top-title">Gösterge Paneli</h2>
       </div>
       <div className="area-top-r">

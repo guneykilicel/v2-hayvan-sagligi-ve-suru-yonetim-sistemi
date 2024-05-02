@@ -1,0 +1,139 @@
+
+
+  .css-3be3ve-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter .MuiInput-underline:before {
+    border-bottom: 1px solid white;
+}
+.MuiTableRow  {
+    &:last-child td {
+      borderBottom: 0,
+    }
+  }
+
+
+
+.data-table{
+
+    .data-grid{
+      font-family: var(--font-family-manrope);
+      font-size: 15px;
+      background: var(--secondary-color);
+      color: var(--text-color-inverted);
+      border: none;
+      border-radius: 8px;
+      padding: 20px;
+
+      .MuiDataGrid-main{
+        .MuiDataGrid-virtualScroller{
+            .MuiDataGrid-topContainer{
+                .MuiDataGrid-columnHeaders{
+                    .css-1essi2g-MuiDataGrid-columnHeaderRow{
+                        background: var(--thead-bg-color);
+                      }                
+                }
+            }
+        }
+      }
+
+      
+      .MuiInput-input{
+        color: var(--text-color-inverted);
+        font-family: var(--font-family-manrope);
+      }
+
+      .MuiInput-underline{
+        color: var(--text-color-inverted);
+      }
+
+      .MuiIconButton-sizeMedium{
+        color: var(--text-color-inverted);
+      }
+
+      .MuiSvgIcon-fontSizeSmall{
+        color: var(--text-color-inverted);
+      }
+
+      .MuiTablePagination-toolbar{
+        color: var(--text-color-inverted);
+      }
+      
+      .MuiDataGrid-overlay{
+        background: var(--secondary-color);
+      }
+  
+      .MuiDataGrid-toolbarContainer{
+      }
+
+      .MuiDataGrid-footerContainer{
+        border: none;
+      }
+
+      .MuiDataGrid-topContainer::after{
+        display: none;
+      }
+  
+      img{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+  
+      .action{
+        display: flex;
+        gap: 15px;
+  
+        img{
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+
+  .action-dropdown-btn {
+    color: var(--text-color-inverted);
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .action-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    height: auto;
+    min-width: 80px;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 1px 4px 0px;
+    background-color: var(--secondary-color);
+    padding: 6px 10px;
+    z-index: 10;
+    border-radius: 8px;
+    border: 1px solid var(--border-color-inverted);
+    text-align: left;
+    position: absolute;
+    top: 35px;
+    left: -50px;
+  }
+
+  .dropdown-menu-item {
+    margin: 8px 0;
+    // &:hover {
+    //   color: white;
+    //   background: var(--primary-color);
+    //   border-radius: 4px;
+    // }
+  }
+
+  .dropdown-menu-link {
+    color: var(--text-color-inverted);
+    font-weight: 600;
+    transition: var(--default-transition);
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }

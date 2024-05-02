@@ -65,7 +65,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/" className="menu-link">
+              <Link to="/profile" className="menu-link">
                 <span className="menu-link-icon">
                 <MdOutlineAccountCircle size={20} />
                 </span>
@@ -81,7 +81,7 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className="menu-item">
-              <Link to="/" className="menu-link">
+              <Link to="/farm-list" className="menu-link">
                 <span className="menu-link-icon">
                 <MdFormatListBulleted size={18} />
                 </span>
